@@ -6,7 +6,7 @@ Build in very small, testable phases. Each phase should be completable in a few 
 
 ## Phase Plan (10 Small Phases)
 
-1. **Project Scaffold**
+1. **Project Scaffold** (Completed)
    - Initialize Next.js + TypeScript project
    - Add lint, format, and test tooling
    - Create base folder structure
