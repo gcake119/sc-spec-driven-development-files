@@ -1,9 +1,28 @@
 ---
 name: changelog
-description: Maintains CHANGELOG.md in the project root using git commit history. Use when the user invokes /changelog, asks to "update the changelog", "generate a changelog", or wants to record what changed before merging a branch. Creates the file from scratch if it doesn't exist (all commits grouped by date); otherwise appends only commits newer than the last recorded date.
+description: Maintains root CHANGELOG.md using git commit history in Airbnb-style dated sections. Use when the user invokes /changelog, asks to update or generate changelog entries, or before merging a branch. If no changelog exists, create one from all commits grouped by date and section. If it exists, prepend only new entries by date.
 ---
 
 # Changelog Skill
+
+## Purpose
+
+Keep a single `CHANGELOG.md` at project root in this format:
+
+- Top title: `# Changelog`
+- Date sections: `## YYYY-MM-DD` (newest first)
+- Airbnb-style category headings under each date:
+  - `### Added`
+  - `### Changed`
+  - `### Fixed`
+  - `### Docs`
+  - `### Chore`
+- Commit bullets under each category (`- <commit subject>`)
+
+## When To Use
+
+- User says: "update changelog", "generate changelog", "before merge add changelog"
+- Manual pre-merge checkpoint for active branch work
 
 ## Workflow
 
@@ -16,8 +35,8 @@ python3 <skill-dir>/scripts/changelog.py
 Where `<skill-dir>` is the directory containing this skill. Claude Code exposes the skill path — use it directly.
 
 2. The script handles both cases automatically:
-   - **No CHANGELOG.md**: reads full git history, writes the file with all dates
-   - **CHANGELOG.md exists**: finds the newest `## YYYY-MM-DD` heading, fetches commits after that date, prepends new sections
+   - **No `CHANGELOG.md`**: read full `git log`, create date headings, add commit bullets per date
+   - **`CHANGELOG.md` exists**: detect newest `## YYYY-MM-DD`, fetch newer commits only, prepend new date sections
 
 3. Review the output, edit bullet wording if needed, then commit `CHANGELOG.md` as part of the merge commit.
 
@@ -28,17 +47,32 @@ Where `<skill-dir>` is the directory containing this skill. Claude Code exposes 
 
 ## 2026-03-31
 
+### Added
 - Add responsive design to layout and CSS
-- Add Vitest test suite for components and routes
+
+### Changed
+- Refine homepage spacing across breakpoints
+
+### Docs
+- Update testing and responsive requirements in specs
 
 ## 2026-03-30
 
+### Added
 - Initial project scaffold
 ```
 
 - One `# Changelog` title at the top
 - Date headings as `## YYYY-MM-DD`, newest first
+- Use Airbnb-style grouped sections per date
 - Each commit is one bullet; wording may be cleaned up manually after generation
+
+## Pre-Merge Checklist
+
+- Run changelog skill manually before merge
+- Confirm new work appears under correct date heading(s)
+- Keep newest dates at top
+- Commit `CHANGELOG.md` with the merge-related changes
 
 ## Notes
 

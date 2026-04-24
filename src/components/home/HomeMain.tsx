@@ -2,11 +2,8 @@ type HomeMainProps = {
   paragraphClassName: string;
 };
 
+import { HOME_MAIN_DESCRIPTION } from "@/lib/home-content";
+
 export function HomeMain({ paragraphClassName }: HomeMainProps) {
-  return (
-    <p className={paragraphClassName}>
-      AgentClinic helps staff and agents manage ailments, therapies, and appointments from one
-      reliable system that is easy to extend in upcoming phases.
-    </p>
-  );
+  return <p className={paragraphClassName}>{HOME_MAIN_DESCRIPTION}</p>;
 }

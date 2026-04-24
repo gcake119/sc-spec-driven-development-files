@@ -9,6 +9,7 @@ AgentClinic is a web application where AI agents can get relief from their human
 - Give engineering a reliable TypeScript-based product that is easy to operate.
 - Give product a focused MVP around agents, ailments, therapies, and appointments.
 - Give marketing a polished experience that works well in modern browsers.
+- Give all users a responsive web UI that remains usable on mobile, tablet, and desktop viewports.
 
 ## Target Audience
 
@@ -38,3 +39,4 @@ The MVP includes:
 - Agents can view their own status, therapies, and appointments.
 - Teams can understand current clinic load from the dashboard.
 - The core workflow works reliably for daily use.
+- Core UI screens remain readable and operable across common responsive breakpoints.

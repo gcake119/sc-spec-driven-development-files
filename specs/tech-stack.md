@@ -11,7 +11,9 @@ Based on stakeholder priorities and the selected direction, AgentClinic uses:
 - Runtime: Node.js 18+
 - Styling: Tailwind CSS
 - Validation: Zod
-- Testing: Vitest + Playwright
+- Testing:
+  - Validation tests: Vitest
+  - End-to-end tests: Playwright
 
 ## Server-Side TypeScript Standard
 
@@ -47,6 +49,12 @@ The dashboard must work well on modern browsers:
 - Firefox (latest)
 - Safari (latest)
 
+## Responsive Design Standard
+
+- The web UI must be responsive across mobile (>=320px), tablet (>=768px), and desktop (>=1024px) viewport widths.
+- Layout, spacing, and typography should adapt by breakpoint to preserve readability and usability.
+- Horizontal scrolling must be avoided for primary product pages at supported viewport widths.
+
 ## Reliability Baseline
 
 - Strong input validation on all API endpoints
@@ -54,6 +62,10 @@ The dashboard must work well on modern browsers:
 - Basic request logging for key clinical flows
 - Database migrations tracked in version control
 - Smoke tests for core user journeys
+
+## Test Command
+
+- `npm test` runs Vitest validation tests via `vitest run`.
 
 ## Initial Project Layout
 

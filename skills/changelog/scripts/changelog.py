@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Maintain CHANGELOG.md from git commit history."""
+"""Maintain CHANGELOG.md from git commit history in Airbnb-style sections."""
 
 import subprocess
 import sys
@@ -22,6 +22,31 @@ def git_log(since_date=None):
     return by_date
 
 
+def classify_subject(subject):
+    """Map commit subject to an Airbnb-style changelog section."""
+    lowered = subject.lower()
+    if lowered.startswith(("feat:", "add ", "added ", "implement ", "create ", "introduce ")):
+        return "Added"
+    if lowered.startswith(("fix:", "bugfix", "fix ", "fixed ", "resolve ", "resolved ")):
+        return "Fixed"
+    if lowered.startswith(("docs:", "doc:", "readme", "documentation", "changelog")):
+        return "Docs"
+    if lowered.startswith(
+        ("chore:", "ci:", "build:", "deps:", "bump ", "upgrade ", "release ", "merge ")
+    ):
+        return "Chore"
+    return "Changed"
+
+
+def group_by_section(subjects):
+    """Return {section: [subject, ...]} in stable section order."""
+    section_order = ["Added", "Changed", "Fixed", "Docs", "Chore"]
+    grouped = {section: [] for section in section_order}
+    for subject in subjects:
+        grouped[classify_subject(subject)].append(subject)
+    return {section: items for section, items in grouped.items() if items}
+
+
 def last_date_in_changelog(path):
     """Return the first ## YYYY-MM-DD heading found, or None."""
     for line in path.read_text().splitlines():
@@ -39,8 +64,11 @@ def render_sections(by_date):
     lines = []
     for date in sorted(by_date, reverse=True):
         lines.append(f"\n## {date}\n")
-        for subject in by_date[date]:
-            lines.append(f"- {subject}\n")
+        grouped = group_by_section(by_date[date])
+        for section, subjects in grouped.items():
+            lines.append(f"\n### {section}\n")
+            for subject in subjects:
+                lines.append(f"- {subject}\n")
     return lines
 
 
