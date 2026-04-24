@@ -1,0 +1,53 @@
+.page {
+  max-width: 48rem;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 1.5rem;
+}
+
+.header {
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 1rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.subtitle {
+  margin: 0.5rem 0 0;
+  color: #4b5563;
+}
+
+.main {
+  display: flex;
+  align-items: flex-start;
+}
+
+.paragraph {
+  margin: 0;
+  line-height: 1.7;
+  color: #1f2937;
+}
+
+.footer {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1rem;
+}
+
+.footerText {
+  margin: 0;
+  color: #6b7280;
+  font-size: 0.95rem;
+}

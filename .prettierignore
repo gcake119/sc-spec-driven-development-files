@@ -1,0 +1,15 @@
+.git
+.next
+node_modules
+coverage
+dist
+
+# Existing course materials outside phase-1 scaffold scope
+Video*
+prompts
+skills
+example_specs
+README.md
+specs/2026-04-23-project-scaffold/plan.md
+specs/2026-04-23-project-scaffold/requirements.md
+specs/2026-04-23-project-scaffold/validation.md

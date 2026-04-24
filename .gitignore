@@ -3,3 +3,7 @@
 DeepLearning SDD Course - Lesson Scripts*.md
 scripts.md
 agentclinic copy/
+node_modules/
+.next/
+coverage/
+dist/
