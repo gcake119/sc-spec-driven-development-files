@@ -7,12 +7,14 @@
 - Format check (or format command) completes successfully.
 - `npm test` runs Vitest and includes at least one passing smoke test.
 - Home route renders a minimal AgentClinic landing experience without runtime errors.
+- Home implementation uses semantic landmarks (`header`, `main`, `footer`) via a layout component, and `HomeHeader`, `HomeMain`, and `HomeFooter` are implemented as separate files.
 
 ## Functional Evidence
 - Base Next.js + TypeScript app is present and executable.
 - Folder structure supports later phase expansion without rework.
 - Tooling scripts are available in `package.json` and usable by new contributors.
 - Root page (`/`) shows AgentClinic identity and a short product purpose statement.
+- Home page styling is maintained in an independent CSS file instead of inline styles.
 
 ## Regression Guardrails
 - Smoke test confirms test runner pipeline is active from phase 1.

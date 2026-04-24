@@ -16,9 +16,10 @@
 3. Add `test` script and confirm it executes in a clean environment.
 
 ## Task Group 4: Minimal home page
-1. Create a minimal AgentClinic home page in the Next.js app.
-2. Show basic product identity (app name and short purpose statement).
-3. Keep implementation intentionally simple and compatible with future dashboard routes.
+1. Create a minimal AgentClinic home page wired through `src/app/page.tsx` and `src/components/home/Home.tsx`.
+2. Use a semantic layout component with clear `header`, `main`, and `footer` landmarks.
+3. Split layout content into child components, with `HomeHeader`, `HomeMain`, and `HomeFooter` each in their own files, and style with an independent CSS file.
+4. Keep implementation intentionally simple and compatible with future dashboard routes.
 
 ## Task Group 5: Readiness checks
 1. Verify scaffold can install dependencies and run dev server.

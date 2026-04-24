@@ -26,7 +26,7 @@
 - Minimal project folders prepared for `app`, `api`, `lib`, `components`, and `types`.
 - Lint and format tooling configured.
 - Vitest configured with one passing smoke test and runnable script.
-- Minimal home page exists and presents AgentClinic name and short purpose.
+- Minimal home page exists as `Home.tsx`, presents AgentClinic name and short purpose, and uses semantic layout landmarks (`header`, `main`, `footer`) with split subcomponents where `HomeHeader`, `HomeMain`, and `HomeFooter` each live in their own files, plus independent CSS.
 
 ## Out of Scope
 - Database setup and migrations.
